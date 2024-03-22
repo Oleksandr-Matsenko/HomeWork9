@@ -35,7 +35,12 @@ extension SignInViewController: SignInModelDelegate {
     func didValidate(errorText: String?, textType: TextType) {
         
         errorTextLabel.text = errorText
-        errorTextLabel.textColor = textStyle.textColor(for: textType)
+        if errorText != nil && textType == .error {
+            errorTextLabel.textColor = .red
+        }
+        else {
+            errorTextLabel.textColor = .green
+        }
     }
 }
 
